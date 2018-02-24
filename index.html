@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Hello, World!</h1>
+    <button>Get Data</button>
+    <div class = "result"></div>
+</body>
+<script
+  src="http://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+<script>
+    $(document).ready(function() {
+        $("button").on("click", function() {
+            $.ajax({
+                url: "/api/all",
+                method: "GET"
+            }).done(function (response) {
+                $(".results").append(response);
+            }); 
+        })
+    });
+</script>
+</html>
